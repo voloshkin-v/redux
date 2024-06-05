@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { createCustomer } from '~/redux/features/customerSlice';
+import { createCustomer } from '~/redux/features/customer/customerSlice';
 import { isFormValid } from '~/utils/isFormValid';
 
 const defaultFormValues = {
@@ -35,8 +35,9 @@ const CreateCustomer = () => {
     }
 
     setValidated(true);
-    dispatch(createCustomer(firstName, lastName, nationalId));
     setFormValues(defaultFormValues);
+
+    dispatch(createCustomer(firstName, lastName, nationalId));
   };
 
   return (

@@ -1,15 +1,17 @@
-import { combineReducers, legacy_createStore as createStore } from 'redux';
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
+import { thunk } from 'redux-thunk';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 import accountReducer from '~/redux/features/accountSlice';
-import customerReducer from '~/redux/features/customerSlice';
+import customerReducer from '~/redux/features/customer/customerSlice';
 
 const rootReducer = combineReducers({
   account: accountReducer,
   customer: customerReducer,
 });
 
-export const store = createStore(rootReducer);
+const composedEnhancer = composeWithDevTools(applyMiddleware(thunk));
 
-store.dispatch({ type: 'asdasd', payload: 1 });
+export const store = createStore(rootReducer, composedEnhancer);
 
 export type RootState = ReturnType<typeof store.getState>;
