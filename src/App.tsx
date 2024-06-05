@@ -1,13 +1,12 @@
-import CreateCustomer from './components/CreateCustomer';
-import Customer from './components/Customer';
+import { useAppSelector } from '~/redux/hooks';
+
+import CreateCustomer from '~/components/CreateCustomer';
+import CustomerDetails from '~/components/CustomerDetails';
 
 const App = () => {
-  return (
-    <div>
-      <Customer />
-      <CreateCustomer />
-    </div>
-  );
+  const { isCreated } = useAppSelector((state) => state.customer);
+
+  return <div>{isCreated ? <CustomerDetails /> : <CreateCustomer />}</div>;
 };
 
 export default App;

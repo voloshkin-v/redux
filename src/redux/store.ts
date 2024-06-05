@@ -10,4 +10,6 @@ const rootReducer = combineReducers({
 
 export const store = createStore(rootReducer);
 
+store.dispatch({ type: 'asdasd', payload: 1 });
+
 export type RootState = ReturnType<typeof store.getState>;

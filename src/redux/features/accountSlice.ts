@@ -1,6 +1,7 @@
 const initialState = {
   balance: 0,
   loan: 0,
+  loanPurpose: '',
 };
 
 const accountReducer = (state = initialState, action) => {
@@ -11,6 +12,5 @@ const accountReducer = (state = initialState, action) => {
       return state;
   }
 };
-
 
 export default accountReducer;
