@@ -1,5 +1,11 @@
+import Customer from './components/Customer';
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <Customer />
+    </div>
+  );
 };
 
 export default App;

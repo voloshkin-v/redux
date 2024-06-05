@@ -10,4 +10,4 @@ const rootReducer = combineReducers({
 
 export const store = createStore(rootReducer);
 
-console.log(store.getState());
+export type RootState = ReturnType<typeof store.getState>;
